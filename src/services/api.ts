@@ -10,6 +10,18 @@ export const listMovies = (query: string) => {
   return api.get(`/search/movie?api_key=${api_key}&language=pt-BR&query=${query}`)
 };
 
+export const listNowMovies = () => {
+  return api.get(`/movie/now_playing?api_key=${api_key}&language=pt-BR`)
+};
+
+export const listSimilarMovies = (movie_id: string) => {
+  return api.get(`/movie/${movie_id}/similar?api_key=${api_key}&language=pt-BR`)
+};
+
+export const listReview = (movie_id: string) => {
+  return api.get(`/movie/${movie_id}/credits?api_key=${api_key}&language=pt-BR`)
+};
+
 export const posterMovie = (path: string) => {
   return `https://image.tmdb.org/t/p/w500${path}`
 };
